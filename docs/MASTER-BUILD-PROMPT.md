@@ -1,40 +1,51 @@
-# PROMPT MESTRE — SISTEMA LISTA DE COMPRAS
+# PROMPT MESTRE — LISTA DE COMPRAS
 
-Crie do zero uma aplicação web responsiva, mobile-first, profissional, simples e funcional chamada **Lista de Compras**.
+Crie do zero uma aplicação web completa, funcional, responsiva e mobile-first para uso INTERNO de um operador que organiza compras para casas de hospedagem/aluguel por temporada.
 
-## CONTEXTO
+## 1. NATUREZA DO PROJETO
 
-O sistema será usado por um operador que organiza compras para casas de hospedagem/aluguel por temporada, com referência de uso em Búzios/RJ.
+Isto é uma FERRAMENTA DE TRABALHO INTERNA, não um website para apresentação.
 
-O sistema NÃO é ERP, NÃO é estoque, NÃO é restaurante, NÃO é sistema de pedidos e NÃO deve tentar resolver problemas que não foram solicitados.
+Não criar:
+- logo;
+- slogan;
+- hero/landing page;
+- marketing;
+- “sobre nós”;
+- depoimentos;
+- dashboard decorativo;
+- gráficos/KPIs;
+- informações institucionais;
+- animações desnecessárias;
+- elementos que não tenham função no fluxo de trabalho.
 
-O objetivo é:
-1. cadastrar clientes e casas;
-2. criar listas de compras independentes;
-3. usar listas-base criadas manualmente;
-4. montar compras por categorias, produtos, unidades e quantidades;
-5. manter histórico das listas;
-6. gerar/imprimir a lista;
-7. opcionalmente oferecer ao cliente imagens completas de cardápios selecionados.
+Não deixar a interface “cheia”. O operador abre a ferramenta para trabalhar, não para admirar a ferramenta.
 
-Não usar preços, estoque, saldo, custo, fornecedor, baixa de estoque, cálculo automático por hóspedes ou integração automática entre cardápio e compras.
+Usar interface neutra, compacta, rápida, clara e profissional. Cada elemento visível deve servir para criar, consultar, editar, duplicar, imprimir ou organizar listas, clientes, casas, bases ou catálogo.
 
-## PRINCÍPIO FUNDAMENTAL
+Não inventar módulos.
 
-Cada lista de cliente é independente.
+## 2. OBJETIVO
 
-Quando uma lista-base for usada, seus itens são COPIADOS para a nova lista. Depois disso:
-- editar a lista não altera a base;
-- editar a base não altera listas antigas;
-- duplicar uma lista cria outra lista independente.
+Permitir:
+1. cadastrar clientes;
+2. cadastrar casas;
+3. criar listas de compras independentes;
+4. criar quantidade ilimitada de listas-base;
+5. montar listas por categorias, produtos, unidades e quantidades;
+6. adicionar produtos/categorias personalizados;
+7. manter histórico;
+8. editar, duplicar e excluir listas;
+9. imprimir/gerar PDF;
+10. opcionalmente anexar imagens completas de cardápios.
 
-Não calcular automaticamente quantidades com base na capacidade da casa.
+NÃO é ERP, estoque, restaurante, e-commerce ou sistema de pedidos.
 
----
+Não usar preços, estoque, fornecedores, saldo, baixa de estoque, custo ou cálculo automático por hóspedes.
 
-# NAVEGAÇÃO
+## 3. NAVEGAÇÃO
 
-Menu:
+Somente o necessário:
 - Início
 - Nova lista
 - Listas
@@ -43,81 +54,40 @@ Menu:
 - Listas-base
 - Catálogo
 - Documentos/Impressões
-- Configurações, se realmente necessário
 
-Não criar dashboards com gráficos, KPIs, estoque ou métricas desnecessárias.
+A tela inicial deve ser simples:
+- botão + Nova lista de compras;
+- listas recentes com cliente, casa, período e itens;
+- atalhos essenciais.
 
----
+Não criar dashboard cheio de informações.
 
-# TELA INICIAL
+## 4. CLIENTES
 
-Visual limpo, profissional, mobile-first.
-
-Título:
-**Lista de Compras**
-
-Subtítulo:
-**Organização de compras para hospedagens**
-
-Botão principal:
-**+ NOVA LISTA DE COMPRAS**
-
-Mostrar listas recentes em cards com:
-- cliente;
-- casa;
-- período;
-- quantidade de itens.
-
-Ações:
-- Abrir
-- Duplicar
-- PDF/Imprimir
-
-Atalhos:
-- Clientes
-- Casas
-- Listas-base
-- Catálogo
-
----
-
-# CLIENTES
-
-Cadastro manual:
+Campos:
 - Nome
 - WhatsApp/contato
 - Observações
 
-Permitir criar novo cliente durante o fluxo de nova lista.
+Permitir criar cliente durante a criação da lista.
 
----
+## 5. CASAS
 
-# CASAS
-
-Cadastro manual:
-- Nome da casa
+Campos:
+- Nome
 - Endereço
-- Capacidade máxima de hóspedes
-- Observações/informações básicas
+- Capacidade máxima
+- Observações
 
-A capacidade é apenas informação da casa. Não deve gerar quantidades automaticamente.
+Capacidade é apenas informativa. Nunca calcular quantidades automaticamente por capacidade.
 
----
+## 6. LISTAS-BASE
 
-# LISTAS-BASE
+Não limitar a três bases.
 
-IMPORTANTE: NÃO criar exatamente três bases fixas.
+Permitir criar, editar, duplicar e excluir quantidade ilimitada de bases.
 
-O operador pode criar quantidade ILIMITADA de listas-base.
-
-Exemplos:
-- Base 10 pessoas
-- Base 15 pessoas
-- Base 20 pessoas
-- Base Fim de Semana
-- Base Casa X
-
-Cada base é configurada manualmente com:
+Cada base possui:
 - nome;
 - categorias;
 - produtos;
@@ -125,77 +95,52 @@ Cada base é configurada manualmente com:
 - quantidades;
 - observações.
 
-A base pode ser editada, duplicada e excluída.
-
-Ao criar uma lista de cliente:
-- escolher qualquer base existente; OU
+Ao criar uma lista:
+- escolher qualquer base existente; ou
 - começar vazia.
 
----
+Ao usar uma base, COPIAR seus dados para a nova lista.
 
-# NOVA LISTA
+Depois da cópia:
+- alterar a lista não altera a base;
+- alterar a base não altera listas antigas;
+- duplicar uma lista cria outra independente.
 
-## Etapa 1 — Identificação
+## 7. NOVA LISTA
 
-Campos:
-- Cliente: selecionar ou + Novo cliente
-- Casa: selecionar ou + Nova casa
-- Data de entrada/check-in
-- Data de saída/check-out
+### Identificação
+- Cliente / Novo cliente
+- Casa / Nova casa
+- Check-in
+- Check-out
 - Observações
 
-## Etapa 2 — Base
+### Base
+- selecionar base;
+- ou começar vazia;
+- mostrar pequena prévia de categorias/produtos.
 
-Opções:
-- escolher uma lista-base existente;
-- começar vazia.
+### Montagem
 
-Mostrar uma pequena prévia da base:
-- quantidade de categorias;
-- quantidade de produtos.
+Mostrar cliente, casa, capacidade e período.
 
-## Etapa 3 — Montagem
-
-No topo:
-- cliente;
-- casa;
-- capacidade;
-- período.
-
-Depois:
-- busca de produtos;
+Permitir:
+- busca;
 - filtro por categoria;
 - catálogo.
 
-Cada produto deve ser editável DIRETAMENTE na própria linha, sem exigir modal para adicionar.
-
-Exemplo visual:
+Cada produto deve ser manipulado DIRETAMENTE na linha, sem modal obrigatório:
 
 Arroz | [Pacote ▼] | [− 2 +]
 
-Água | [Fardo ▼] | [− 2 +]
-
-Cerveja | [Lata ▼] | [− 12 +]
-
 Regras:
-- quantidade inicial 0;
-- ao aumentar de 0, produto entra na lista;
-- ao voltar a 0, produto sai da lista;
+- começa em 0;
+- acima de 0 entra na lista;
+- voltando a 0 sai;
 - unidade e quantidade ficam na própria linha;
-- unidades devem ser coerentes com o produto;
-- não criar dezenas de produtos duplicados apenas por tamanho/marca.
+- unidades devem ser coerentes.
 
-Unidades possíveis:
-- Unidade
-- Pacote
-- Fardo
-- Garrafa
-- Lata
-- Caixa
-- Dúzia
-- Quilo
-- Litro
-- etc., conforme fizer sentido.
+Unidades possíveis: Unidade, Pacote, Fardo, Garrafa, Lata, Caixa, Dúzia, Quilo, Litro etc.
 
 Exemplos:
 - Arroz: pacote/fardo
@@ -206,29 +151,26 @@ Exemplos:
 - Carnes: quilo
 
 Em cada categoria:
-**+ ADICIONAR PRODUTO**
++ Adicionar produto
 
-O produto personalizado deve conter:
+Produto personalizado:
 - nome;
 - unidade;
 - quantidade.
 
-Produto personalizado pertence SOMENTE àquela lista. Não entra automaticamente no catálogo global.
+Ele pertence somente àquela lista e não entra automaticamente no catálogo global.
 
-Na lista inteira:
-**+ ADICIONAR CATEGORIA/ÁREA**
+Na lista:
++ Adicionar categoria/área
 
-Categorias personalizadas pertencem somente àquela lista.
+Categoria personalizada pertence somente àquela lista.
 
-No celular, manter acesso persistente:
+No celular manter acesso fácil a:
 **Ver lista atual — X itens**
 
----
-
-# CATÁLOGO GLOBAL
+## 8. CATÁLOGO GLOBAL
 
 Categorias fixas:
-
 1. Produtos de limpeza
 2. Higiene e amenities
 3. Mantimentos
@@ -245,62 +187,43 @@ Categorias fixas:
 14. Churrasco
 15. Pet
 
-NÃO criar Piscina ou Manutenção como categorias fixas.
+Não criar Piscina ou Manutenção como categorias fixas.
 
-Se forem necessárias, o operador cria uma categoria personalizada dentro da lista.
+### Produtos
 
-## PRODUTOS DO CATÁLOGO
+**Produtos de limpeza:** Água sanitária; Álcool líquido; Álcool perfumado; Desengordurante; Desinfetante; Detergente; Limpa-alumínio; Limpa-cerâmica; Limpa-vidros; Limpador multiuso; Limpador de banheiro; Lustra-móveis; Removedor; Sabão em barra; Sabão líquido; Saponáceo; Tira-manchas; Esponja; Esponja de aço; Flanela; Luvas de limpeza; Pano de chão; Pano multiuso; Pano para vidro; Rodo; Vassoura; Aromatizador de ambiente; Desodorizador sanitário; Pastilha sanitária.
 
-### Produtos de limpeza
-Água sanitária; Álcool líquido; Álcool perfumado; Desengordurante; Desinfetante; Detergente; Limpa-alumínio; Limpa-cerâmica; Limpa-vidros; Limpador multiuso; Limpador de banheiro; Lustra-móveis; Removedor; Sabão em barra; Sabão líquido; Saponáceo; Tira-manchas; Esponja; Esponja de aço; Flanela; Luvas de limpeza; Pano de chão; Pano multiuso; Pano para vidro; Rodo; Vassoura; Aromatizador de ambiente; Desodorizador sanitário; Pastilha sanitária.
+**Higiene e amenities:** Álcool em gel; Algodão; Cotonete; Creme dental; Escova dental; Fio dental; Lenço de papel; Papel higiênico; Sabonete; Sabonete líquido; Shampoo; Condicionador; Hidratante corporal; Absorvente; Sacos para lixo de banheiro.
 
-### Higiene e amenities
-Álcool em gel; Algodão; Cotonete; Creme dental; Escova dental; Fio dental; Lenço de papel; Papel higiênico; Sabonete; Sabonete líquido; Shampoo; Condicionador; Hidratante corporal; Absorvente; Sacos para lixo de banheiro.
+**Mantimentos:** Açúcar; Arroz; Café; Farinha de mandioca; Farinha de trigo; Feijão; Fubá; Macarrão; Sal; Óleo; Azeite; Vinagre; Ketchup; Maionese; Mostarda; Molho de pimenta; Molho de tomate; Extrato de tomate; Molho inglês; Alho; Cebola; Caldo/tempero culinário; Orégano; Pimenta-do-reino; Sal grosso; Temperos diversos; Amido de milho; Aveia; Biscoitos; Farofa pronta; Fermento; Leite de coco; Leite condensado; Creme de leite; Gelatina.
 
-### Mantimentos
-Açúcar; Arroz; Café; Farinha de mandioca; Farinha de trigo; Feijão; Fubá; Macarrão; Sal; Óleo; Azeite; Vinagre; Ketchup; Maionese; Mostarda; Molho de pimenta; Molho de tomate; Extrato de tomate; Molho inglês; Alho; Cebola; Caldo/tempero culinário; Orégano; Pimenta-do-reino; Sal grosso; Temperos diversos; Amido de milho; Aveia; Biscoitos; Farofa pronta; Fermento; Leite de coco; Leite condensado; Creme de leite; Gelatina.
+**Carnes:** Alcatra; Bacon; Bife bovino; Carne de panela; Carne moída; Carne seca; Contra-filé; Costela bovina; Filé mignon; Linguiça; Patinho; Pernil suíno; Bisteca suína; Costelinha suína; Lombo suíno; Frango; Filé de frango; Peito de frango; Sobrecoxa de frango; Asa de frango.
 
-### Carnes
-Alcatra; Bacon; Bife bovino; Carne de panela; Carne moída; Carne seca; Contra-filé; Costela bovina; Filé mignon; Linguiça; Patinho; Pernil suíno; Bisteca suína; Costelinha suína; Lombo suíno; Frango; Filé de frango; Peito de frango; Sobrecoxa de frango; Asa de frango.
+**Peixes e frutos do mar:** Camarão; Filé de peixe; Peixe inteiro; Lula; Polvo; Salmão; Mexilhão; Outros frutos do mar.
 
-### Peixes e frutos do mar
-Camarão; Filé de peixe; Peixe inteiro; Lula; Polvo; Salmão; Mexilhão; Outros frutos do mar.
+**Hortifruti:** Abóbora; Abobrinha; Aipim; Alface; Batata; Batata-doce; Berinjela; Beterraba; Brócolis; Cenoura; Chuchu; Couve; Couve-flor; Pepino; Pimentão; Rúcula; Tomate; Alho; Cebola; Cheiro-verde; Coentro; Salsa; Cebolinha; Limão; Abacaxi; Banana; Laranja; Maçã; Mamão; Manga; Melancia; Melão; Morango; Uva.
 
-### Hortifruti
-Abóbora; Abobrinha; Aipim; Alface; Batata; Batata-doce; Berinjela; Beterraba; Brócolis; Cenoura; Chuchu; Couve; Couve-flor; Pepino; Pimentão; Rúcula; Tomate; Alho; Cebola; Cheiro-verde; Coentro; Salsa; Cebolinha; Limão; Abacaxi; Banana; Laranja; Maçã; Mamão; Manga; Melancia; Melão; Morango; Uva.
+**Café da manhã:** Bisnaguinha; Croissant; Pão de forma; Pão de queijo; Pão francês; Pão integral; Torradas; Geleia; Margarina; Manteiga; Mel; Muçarela; Presunto; Queijo minas; Queijo prato; Requeijão; Ovos; Bolo de cenoura; Bolo de chocolate; Abacaxi; Banana; Laranja; Mamão; Manga; Melancia; Melão; Morango; Uva; Aveia; Granola; Iogurte natural; Leite; Café; Matte; Suco natural.
 
-### Café da manhã
-Bisnaguinha; Croissant; Pão de forma; Pão de queijo; Pão francês; Pão integral; Torradas; Geleia; Margarina; Manteiga; Mel; Muçarela; Presunto; Queijo minas; Queijo prato; Requeijão; Ovos; Bolo de cenoura; Bolo de chocolate; Abacaxi; Banana; Laranja; Mamão; Manga; Melancia; Melão; Morango; Uva; Aveia; Granola; Iogurte natural; Leite; Café; Matte; Suco natural.
+**Bebidas:** Água mineral; Água com gás; Água de coco; Café; Chá; Leite; Matte; Polpa de fruta; Refrigerante; Suco; Cerveja; Espumante; Vinho; Destilados.
 
-### Bebidas
-Água mineral; Água com gás; Água de coco; Café; Chá; Leite; Matte; Polpa de fruta; Refrigerante; Suco; Cerveja; Espumante; Vinho; Destilados.
+**Padaria e lanches:** Cachorro-quente; Hambúrguer; Massa de pastel; Massa de pizza; Pão de hambúrguer; Pão de queijo; Pão francês; Pão de forma; Presunto; Queijo; Salsicha.
 
-### Padaria e lanches
-Cachorro-quente; Hambúrguer; Massa de pastel; Massa de pizza; Pão de hambúrguer; Pão de queijo; Pão francês; Pão de forma; Presunto; Queijo; Salsicha.
+**Confeitaria e sobremesas:** Biscoito; Cacau em pó; Chocolate; Chocolate em pó; Coco ralado; Cream cheese; Creme de leite; Doce de leite; Gelatina; Leite condensado; Sorvete; Chocolate granulado; Frutas; Ovos; Farinha de trigo; Açúcar.
 
-### Confeitaria e sobremesas
-Biscoito; Cacau em pó; Chocolate; Chocolate em pó; Coco ralado; Cream cheese; Creme de leite; Doce de leite; Gelatina; Leite condensado; Sorvete; Chocolate granulado; Frutas; Ovos; Farinha de trigo; Açúcar.
+**Cozinha / consumíveis:** Filme plástico; Papel-alumínio; Papel-manteiga; Papel-toalha; Filtro de café; Sacos para alimentos; Sacos tipo zip; Guardanapos; Palitos de dente; Espetos; Esponjas; Detergente.
 
-### Cozinha / consumíveis
-Filme plástico; Papel-alumínio; Papel-manteiga; Papel-toalha; Filtro de café; Sacos para alimentos; Sacos tipo zip; Guardanapos; Palitos de dente; Espetos; Esponjas; Detergente.
+**Descartáveis:** Copo descartável; Prato descartável; Talher descartável; Guardanapo; Marmita descartável; Tampa para marmita; Canudo; Embalagem para alimentos; Saco para alimentos; Copo para café.
 
-### Descartáveis
-Copo descartável; Prato descartável; Talher descartável; Guardanapo; Marmita descartável; Tampa para marmita; Canudo; Embalagem para alimentos; Saco para alimentos; Copo para café.
+**Lavanderia:** Sabão em pó; Sabão líquido; Amaciante; Alvejante; Tira-manchas; Sabão em barra; Sacos para roupa.
 
-### Lavanderia
-Sabão em pó; Sabão líquido; Amaciante; Alvejante; Tira-manchas; Sabão em barra; Sacos para roupa.
+**Churrasco:** Carvão; Sal grosso; Acendedor; Espetos; Papel-alumínio; Farofa; Molho barbecue; Molho de alho; Vinagrete; Linguiça; Carnes para churrasco; Pão de alho.
 
-### Churrasco
-Carvão; Sal grosso; Acendedor; Espetos; Papel-alumínio; Farofa; Molho barbecue; Molho de alho; Vinagrete; Linguiça; Carnes para churrasco; Pão de alho.
+**Pet:** Ração; Tapete higiênico; Sacos para dejetos; Petiscos; Areia sanitária.
 
-### Pet
-Ração; Tapete higiênico; Sacos para dejetos; Petiscos; Areia sanitária.
+## 9. REVISÃO E SALVAMENTO
 
----
-
-# REVISÃO E SALVAMENTO
-
-Antes de salvar, mostrar:
+Antes de salvar mostrar:
 - cliente;
 - contato;
 - casa;
@@ -312,28 +235,18 @@ Antes de salvar, mostrar:
 - unidades;
 - observações.
 
-Botão:
-**SALVAR LISTA**
+Salvar lista.
 
-Depois de salvar:
-**Lista criada!**
-
-Ações:
+Depois:
 - Abrir
 - Editar
 - Duplicar
-- Gerar PDF/Imprimir
+- PDF/Imprimir
 - Oferecer cardápio
 
----
+## 10. CARDÁPIO — APRESENTAÇÃO, NÃO PEDIDO
 
-# CARDÁPIO — REGRA DEFINITIVA
-
-O cardápio é SOMENTE material de apresentação.
-
-Ele NÃO é um sistema de pedidos.
-
-Depois de finalizar a lista, perguntar:
+Após salvar:
 
 **Oferecer cardápio?**
 - Não
@@ -342,140 +255,93 @@ Depois de finalizar a lista, perguntar:
 Se Sim:
 
 **Qual cardápio deseja oferecer?**
-
-Permitir selecionar:
 - Café da manhã
 - Almoço
 - Lanche da tarde
 - Sobremesas
 
-Pode selecionar um, vários ou todos.
+Permitir selecionar um, vários ou todos.
 
-IMPORTANTE:
-Cada opção selecionada corresponde a uma IMAGEM COMPLETA do respectivo cardápio.
+Cada opção corresponde a uma IMAGEM COMPLETA e independente.
 
-Exemplo:
-Se selecionar Café da manhã + Almoço:
-- anexar a imagem completa do cardápio Café da manhã;
-- anexar a imagem completa do cardápio Almoço.
+Se selecionar Café + Almoço, anexar as duas imagens completas.
 
-O cliente recebe a lista juntamente com essas imagens.
-
-O cliente NÃO escolhe pratos dentro do sistema.
-
-O cliente apenas visualiza o cardápio e conversa diretamente com o operador para informar o que deseja.
+O cliente somente visualiza as imagens e informa ao operador o que deseja por conversa externa.
 
 NÃO criar:
-- seleção de pratos;
+- seleção individual de pratos;
 - carrinho;
 - pedido;
-- quantidade de pratos;
+- quantidades de pratos;
 - preços;
-- cálculo de ingredientes;
-- vínculo prato → compras;
+- checkout;
 - disponibilidade;
-- checkout.
+- cálculo de ingredientes;
+- vínculo prato → compras.
 
-O cardápio não altera a lista de compras.
+O cardápio nunca altera a lista.
 
-As quatro imagens devem existir como materiais independentes:
-- cardápio Café da manhã
-- cardápio Almoço
-- cardápio Lanche da tarde
-- cardápio Sobremesas
+## 11. ARTES DOS CARDÁPIOS
 
----
+Criar 4 artes visuais completas:
+1. Café da manhã
+2. Almoço
+3. Lanche da tarde
+4. Sobremesas
 
-# CONTEÚDO DOS CARDÁPIOS
+Elas devem:
+- ser imagens prontas para compartilhar por WhatsApp;
+- funcionar bem em tela de celular;
+- usar o conteúdo exato abaixo;
+- manter o mesmo padrão visual entre as quatro;
+- ter boa legibilidade;
+- ter aparência gastronômica profissional;
+- usar fotografias gastronômicas representativas, sem precisar de uma foto para cada prato;
+- não parecer anúncio publicitário;
+- não parecer banco de imagens genérico;
+- não ter preços;
+- não inventar pratos;
+- não alterar nomes;
+- não adicionar informações que não estejam especificadas.
 
-## Café da manhã
+As fotos devem ser coerentes com os pratos representados e manter iluminação, composição e estilo consistentes entre as quatro artes.
 
-### Pães e panificados
-Bisnaguinhas; Croissant; Pão de forma; Pão de queijo; Pão francês; Pão integral; Torradas.
+### Café da manhã
+**Pães e panificados:** Bisnaguinhas; Croissant; Pão de forma; Pão de queijo; Pão francês; Pão integral; Torradas.
+**Frios e acompanhamentos:** Geleia; Margarina; Manteiga; Mel; Muçarela; Presunto; Queijo minas; Queijo prato; Requeijão.
+**Ovos:** Omelete; Ovos fritos; Ovos mexidos.
+**Bolos e doces:** Bolo de cenoura com cobertura de chocolate; Bolo de chocolate.
+**Frutas:** Abacaxi; Banana; Laranja; Mamão; Manga; Melancia; Melão; Morango; Uva.
+**Cereais e laticínios:** Aveia; Granola; Iogurte natural; Leite.
+**Bebidas:** Café; Leite; Matte; Suco natural.
 
-### Frios e acompanhamentos
-Geleia; Margarina; Manteiga; Mel; Muçarela; Presunto; Queijo minas; Queijo prato; Requeijão.
+### Almoço
+**Carnes bovinas:** Bife acebolado; Bife com fritas; Carne assada; Carne de panela; Carne seca com aipim; Costela com batata; Estrogonofe de carne; Filé mignon; Filé mignon ao molho madeira; Rabada com agrião; Rocambole de carne moída recheada.
+**Frango:** Estrogonofe de frango; Filé de frango à parmegiana; Frango assado; Frango com creme de milho; Frango grelhado; Fricassê de frango; Galinha ensopada; Sobrecoxa assada com batata.
+**Suínos:** Bisteca suína acebolada; Costelinha suína ao molho barbecue; Costelinha suína assada; Lombo suíno assado; Pernil assado.
+**Peixes:** Filé de peixe à milanesa; Filé de peixe com creme de alho-poró; Filé de peixe grelhado; Peixe assado com batatas; Peixe frito; Peixada.
+**Frutos do mar:** Bobó de camarão; Camarão ao alho e óleo; Camarão na moranga; Moqueca de camarão; Polvo à lagareiro; Salmão.
+**Pratos tradicionais:** Baião de dois; Dobradinha; Feijoada; Galinhada; Mocotó; Vaca atolada.
+**Massas:** Canelone; Lasanha à bolonhesa; Lasanha de camarão; Lasanha de frango; Massas à bolonhesa; Massas ao molho branco; Massas com camarão; Nhoque ao molho; Rondelli de presunto e queijo.
+**Risotos:** Risoto de camarão; Risoto de carne-seca; Risoto de quatro queijos; Risoto de frango.
+**Acompanhamentos:** Aipim frito; Arroz à grega; Arroz branco; Batata frita; Batata rústica; Farofa; Feijão; Legumes salteados; Purê de batata; Salada de maionese; Salada verde; Vinagrete.
 
-### Ovos
-Omelete; Ovos fritos; Ovos mexidos.
+### Lanche da tarde
+**Sanduíches:** Misto quente; Sanduíche de carne desfiada; Sanduíche de frango com queijo; Sanduíche de presunto e queijo; Sanduíche natural de atum; Sanduíche natural de frango.
+**Lanches:** Cachorro-quente; Cheeseburger; Hambúrguer; X-bacon.
+**Tortas e quiches:** Empadão; Quiche; Torta de carne; Torta salgada de frango.
+**Salgados:** Bolinha de queijo; Coxinha; Enroladinho de presunto e queijo; Kibe; Pastel de carne; Pastel de frango; Pastel de queijo; Risole.
+**Outras:** Pão de queijo; Pizza; Tapioca.
 
-### Bolos e doces
-Bolo de cenoura com cobertura de chocolate; Bolo de chocolate.
+### Sobremesas
+**Clássicas:** Cheesecake; Mousse de chocolate; Mousse de limão; Mousse de maracujá; Pudim; Romeu e Julieta.
+**Chocolate:** Brigadeirão; Brownie com sorvete; Palha Italiana; Torta de chocolate.
+**Tortas:** Banoffee; Torta de coco; Torta de limão; Torta de chocolate.
+**Sobremesas de travessa:** Bombom na travessa; Pavê de chocolate; Pavê de morango.
 
-### Frutas
-Abacaxi; Banana; Laranja; Mamão; Manga; Melancia; Melão; Morango; Uva.
+## 12. HISTÓRICO
 
-### Cereais e laticínios
-Aveia; Granola; Iogurte natural; Leite.
-
-### Bebidas
-Café; Leite; Matte; Suco natural.
-
-## Almoço
-
-### Carnes bovinas
-Bife acebolado; Bife com fritas; Carne assada; Carne de panela; Carne seca com aipim; Costela com batata; Estrogonofe de carne; Filé mignon; Filé mignon ao molho madeira; Rabada com agrião; Rocambole de carne moída recheada.
-
-### Frango
-Estrogonofe de frango; Filé de frango à parmegiana; Frango assado; Frango com creme de milho; Frango grelhado; Fricassê de frango; Galinha ensopada; Sobrecoxa assada com batata.
-
-### Suínos
-Bisteca suína acebolada; Costelinha suína ao molho barbecue; Costelinha suína assada; Lombo suíno assado; Pernil assado.
-
-### Peixes
-Filé de peixe à milanesa; Filé de peixe com creme de alho-poró; Filé de peixe grelhado; Peixe assado com batatas; Peixe frito; Peixada.
-
-### Frutos do mar
-Bobó de camarão; Camarão ao alho e óleo; Camarão na moranga; Moqueca de camarão; Polvo à lagareiro; Salmão.
-
-### Pratos tradicionais
-Baião de dois; Dobradinha; Feijoada; Galinhada; Mocotó; Vaca atolada.
-
-### Massas
-Canelone; Lasanha à bolonhesa; Lasanha de camarão; Lasanha de frango; Massas à bolonhesa; Massas ao molho branco; Massas com camarão; Nhoque ao molho; Rondelli de presunto e queijo.
-
-### Risotos
-Risoto de camarão; Risoto de carne-seca; Risoto de quatro queijos; Risoto de frango.
-
-### Acompanhamentos
-Aipim frito; Arroz à grega; Arroz branco; Batata frita; Batata rústica; Farofa; Feijão; Legumes salteados; Purê de batata; Salada de maionese; Salada verde; Vinagrete.
-
-## Lanche da tarde
-
-### Sanduíches
-Misto quente; Sanduíche de carne desfiada; Sanduíche de frango com queijo; Sanduíche de presunto e queijo; Sanduíche natural de atum; Sanduíche natural de frango.
-
-### Lanches
-Cachorro-quente; Cheeseburger; Hambúrguer; X-bacon.
-
-### Tortas e quiches
-Empadão; Quiche; Torta de carne; Torta salgada de frango.
-
-### Salgados
-Bolinha de queijo; Coxinha; Enroladinho de presunto e queijo; Kibe; Pastel de carne; Pastel de frango; Pastel de queijo; Risole.
-
-### Outras
-Pão de queijo; Pizza; Tapioca.
-
-## Sobremesas
-
-### Clássicas
-Cheesecake; Mousse de chocolate; Mousse de limão; Mousse de maracujá; Pudim; Romeu e Julieta.
-
-### Chocolate
-Brigadeirão; Brownie com sorvete; Palha Italiana; Torta de chocolate.
-
-### Tortas
-Banoffee; Torta de coco; Torta de limão; Torta de chocolate.
-
-### Sobremesas de travessa
-Bombom na travessa; Pavê de chocolate; Pavê de morango.
-
----
-
-# HISTÓRICO
-
-Cada lista deve mostrar:
+Cada lista:
 - cliente;
 - contato;
 - casa;
@@ -490,16 +356,11 @@ Ações:
 - excluir;
 - PDF/Imprimir.
 
-Duplicar sempre cria uma lista independente.
+## 13. PDF/IMPRESSÃO
 
----
-
-# DOCUMENTO/PDF
-
-Quando gerar a apresentação da lista:
-
-1. Lista de compras
-2. Depois, somente as imagens completas dos cardápios selecionados.
+Ordem:
+1. lista de compras;
+2. depois as imagens completas dos cardápios selecionados.
 
 Lista:
 - título;
@@ -509,7 +370,7 @@ Lista:
 - capacidade;
 - entrada;
 - saída;
-- data de criação;
+- data;
 - categorias;
 - produto;
 - quantidade;
@@ -519,125 +380,60 @@ Lista:
 
 Sem preços.
 
-As imagens de cardápio devem aparecer completas e visualmente organizadas, sem transformar o conteúdo em uma tela de seleção.
+## 14. PERSISTÊNCIA
 
----
+A aplicação precisa funcionar de verdade.
 
-# ESTILO VISUAL
+Dados não podem desaparecer ao navegar.
 
-Criar algo:
-- profissional;
-- limpo;
-- moderno;
-- simples;
-- mobile-first;
-- rápido;
-- fácil de usar;
-- sem aparência genérica de projeto de IA;
-- sem excesso de cores;
-- sem gradientes exagerados;
-- sem gráficos desnecessários;
-- sem animações que prejudiquem produtividade.
+Usar persistência simples e confiável para V1, preferencialmente localStorage ou equivalente se não houver necessidade de backend.
 
-Priorizar excelente experiência no celular, mas funcionar bem no desktop.
+Não adicionar autenticação, pagamentos ou serviços externos sem necessidade.
 
-Usar boa hierarquia visual, espaçamento, tipografia legível, botões claros e componentes consistentes.
+## 15. QUALIDADE
 
----
+Antes de concluir, testar:
+- cliente;
+- casa;
+- múltiplas bases;
+- base → nova lista independente;
+- lista vazia;
+- +/−;
+- unidades;
+- produto personalizado;
+- categoria personalizada;
+- edição;
+- duplicação;
+- exclusão;
+- histórico;
+- PDF/impressão;
+- cardápio Não;
+- cardápio Sim;
+- 1, 2 e 4 cardápios;
+- imagens completas corretas;
+- ausência de seleção individual de pratos;
+- ausência de preços;
+- ausência de estoque;
+- ausência de cálculo automático por capacidade;
+- responsividade mobile/desktop;
+- build/lint/testes disponíveis.
 
-# PERSISTÊNCIA
+Corrigir erros antes de considerar concluído.
 
-A aplicação precisa realmente funcionar.
+## 16. ENTREGA
 
-Os dados não podem desaparecer ao trocar de tela.
+Entregar o projeto completo, funcional e organizado.
 
-Implementar persistência apropriada para a primeira versão, preferencialmente simples e confiável.
+Não deixar os fluxos principais como mock visual.
 
-Não adicionar backend, autenticação, pagamentos ou serviços externos se não forem necessários para o funcionamento inicial.
+Executar validações disponíveis.
 
----
+Ao final informar:
+- o que foi implementado;
+- testes executados;
+- resultado do build;
+- pendências, se houver.
 
-# QUALIDADE E VALIDAÇÃO
-
-Antes de considerar concluído:
-
-1. testar criação de cliente;
-2. testar criação de casa;
-3. testar criação de lista-base;
-4. testar várias listas-base;
-5. testar criação de lista vazia;
-6. testar criação usando base;
-7. confirmar que alterações não modificam a base;
-8. testar quantidade +/−;
-9. testar unidades;
-10. testar produtos personalizados;
-11. testar categorias personalizadas;
-12. testar edição;
-13. testar duplicação;
-14. testar exclusão;
-15. testar histórico;
-16. testar impressão/PDF;
-17. testar Oferecer cardápio = Não;
-18. testar Oferecer cardápio = Sim;
-19. testar seleção de um cardápio;
-20. testar seleção de dois cardápios;
-21. testar seleção dos quatro;
-22. confirmar que cada seleção anexa a imagem completa correspondente;
-23. confirmar que não existe seleção individual de pratos;
-24. confirmar que não existe preço;
-25. confirmar que não existe estoque;
-26. confirmar que não existe cálculo automático por capacidade;
-27. testar responsividade no celular;
-28. executar build/lint/testes disponíveis e corrigir erros.
-
-Não declarar o projeto concluído se houver erro funcional ou de build.
-
----
-
-# REGRAS ABSOLUTAS
+Quando houver dúvida, escolher a solução mais simples que preserve exatamente esta especificação.
 
 Não inventar funcionalidades.
-
-Não transformar o projeto em:
-- ERP;
-- estoque;
-- restaurante;
-- e-commerce;
-- sistema de pedidos;
-- sistema financeiro.
-
-Não adicionar preços.
-
-Não adicionar estoque.
-
-Não adicionar cálculo automático de quantidade.
-
-Não adicionar integração automática entre cardápio e lista.
-
-Não permitir seleção de pratos.
-
-Não criar categorias fixas Piscina ou Manutenção.
-
-Não limitar listas-base a três modelos.
-
-Não alterar a lógica definida neste documento.
-
-Quando houver dúvida, preservar a simplicidade e a lógica deste prompt em vez de inventar uma solução.
-
-## ENTREGA
-
-Crie o projeto completo e funcional.
-
-Organize o código de forma clara e fácil de manter.
-
-Garanta que o repositório fique com todos os arquivos necessários.
-
-Execute as validações disponíveis.
-
-Ao final, informe claramente:
-- o que foi implementado;
-- quais testes foram executados;
-- se o build passou;
-- se existe algum ponto pendente.
-
-Não deixe funcionalidades apenas como mock visual: os fluxos principais precisam funcionar de verdade.
