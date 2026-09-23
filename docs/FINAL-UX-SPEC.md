@@ -119,10 +119,34 @@ Cada lista deve mostrar:
 
 Ações: abrir, editar, duplicar, excluir e PDF.
 
+## Cardápio — apresentação ao cliente
+O cardápio não é uma ferramenta de pedido ou seleção de pratos. Ele é material de apresentação.
+
+Ao finalizar uma lista, perguntar:
+
+**Oferecer cardápio?**
+- Não
+- Sim
+
+Se Sim, mostrar:
+**Qual cardápio deseja oferecer?**
+- Café da manhã
+- Almoço
+- Lanche da tarde
+- Sobremesas
+
+Pode selecionar um, vários ou todos.
+
+Cada opção corresponde a uma imagem completa do respectivo cardápio. O cliente recebe a imagem inteira, visualiza as opções e informa ao operador o que deseja por comunicação externa ao sistema.
+
+O sistema não deve permitir seleção individual de pratos, quantidades, preços ou pedidos.
+
+As imagens são independentes da lista de compras e não alteram seus itens.
+
 ## PDF/Impressão
 Ordem obrigatória:
 1. Lista de compras
-2. Cardápio, somente se contratado
+2. Imagens completas dos cardápios selecionados, se o operador escolheu oferecer cardápio
 
 Cabeçalho da lista:
 - cliente;
@@ -135,7 +159,7 @@ Cabeçalho da lista:
 
 Itens agrupados por categoria, com produto, quantidade, unidade e checklist visual.
 
-Depois das compras, se contratado, inserir somente as refeições selecionadas e suas opções completas.
+Depois das compras, inserir as imagens completas dos cardápios selecionados, mantendo cada cardápio como uma apresentação visual independente.
 
 Sem preços.
 
@@ -165,6 +189,8 @@ Piscina e Manutenção não são categorias fixas. Qualquer necessidade fora do 
 - Sem cálculo de ingredientes.
 - Sem integração prato → compras.
 - Sem seleção individual de pratos.
+- Sem pedido de pratos dentro do sistema.
+- Sem vínculo automático entre prato e ingrediente.
 - Sem funcionalidades não solicitadas.
 
 ## Prioridade técnica
